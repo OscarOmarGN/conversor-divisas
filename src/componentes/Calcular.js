@@ -37,9 +37,8 @@ const Calcular = () => {
     setRenderValor(valorFinal)
   }
 
-
   return (
-    <div>
+    <form onSubmit={convertir}>
       <div className="ingresar">
         <input type="number" defaultValue={1} onChange={(e) => {parseInt(setCantidadIngresada(e.target.value === 0 || e.target.value === '' ? 1 : e.target.value))}}/>
         <select name="select-a-convertir">
@@ -51,7 +50,7 @@ const Calcular = () => {
         </select>
       </div>
       <div className="convertido">
-        <input type="text" defaultValue={renderValor} />
+        <input type="text" defaultValue={renderValor} disabled />
         <select name="select-convertir">
           {
             siglasDivisa.map((sigla, index) => {
@@ -60,8 +59,8 @@ const Calcular = () => {
           }
         </select>
       </div>
-      <button onClick={convertir}>Convertir</button>
-    </div>
+      <button>Convertir</button>
+    </form>
   )
 }
 
